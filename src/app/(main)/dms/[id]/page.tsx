@@ -1,5 +1,6 @@
 'use client';
 
+import { DMsForm } from '@components/dms/form';
 import { RelayContext } from '@lib/relays';
 import { dmsAtom, user } from '@lib/stores';
 import { useAtomValue, useSetAtom } from 'jotai';
@@ -59,10 +60,13 @@ export default function DM({ params }: { params: any }) {
   }, [resetChatMessages]);
 
   return (
-    <div className="h-full w-full">
+    <div className="flex h-full w-full flex-col justify-between">
       <Suspense fallback={<p>Loading...</p>}>
         <DMsMessages />
       </Suspense>
+      <div className="inline-flex shrink-0 p-3">
+        <DMsForm receiverPub={params.id} />
+      </div>
     </div>
   );
 }

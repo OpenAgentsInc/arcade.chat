@@ -24,7 +24,7 @@ export default function DMsMessages() {
   );
 
   return (
-    <div className="h-full w-full py-4">
+    <div className="h-full w-full">
       <Virtuoso
         ref={virtuosoRef}
         data={data}

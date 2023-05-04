@@ -1,5 +1,6 @@
 'use client';
 
+import { ChannelForm } from '@components/channels/form';
 import { dateToUnix, hoursAgo } from '@lib/date';
 import { RelayContext } from '@lib/relays';
 import { channelMessagesAtom } from '@lib/stores';
@@ -53,10 +54,13 @@ export default function Channel({ params }: { params: any }) {
   }, [resetChannelMessages]);
 
   return (
-    <div className="h-full w-full">
+    <div className="flex h-full w-full flex-col justify-between">
       <Suspense fallback={<p>Loading...</p>}>
         <ChannelMessages />
       </Suspense>
+      <div className="inline-flex shrink-0 p-3">
+        <ChannelForm id={params.id} />
+      </div>
     </div>
   );
 }
