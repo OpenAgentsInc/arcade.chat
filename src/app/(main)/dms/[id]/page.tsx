@@ -1,8 +1,8 @@
 'use client';
 
 import { RelayContext } from '@lib/relays';
-import { dmsAtom } from '@lib/stores';
-import { useSetAtom } from 'jotai';
+import { dmsAtom, user } from '@lib/stores';
+import { useAtomValue, useSetAtom } from 'jotai';
 import { useResetAtom } from 'jotai/utils';
 import { Suspense, lazy, useContext, useEffect } from 'react';
 import useSWRSubscription from 'swr/subscription';
@@ -12,6 +12,7 @@ const DMsMessages = lazy(() => import('@components/dms/messages'));
 export default function DM({ params }: { params: any }) {
   const { pool, relays }: any = useContext(RelayContext);
 
+  const currentUser = useAtomValue(user);
   const setChatMessages: any = useSetAtom(dmsAtom);
   const resetChatMessages = useResetAtom(dmsAtom);
 
@@ -21,13 +22,13 @@ export default function DM({ params }: { params: any }) {
         {
           kinds: [4],
           authors: [key],
-          '#p': ['126103bfddc8df256b6e0abfd7f3797c80dcc4ea88f7c2f87dd4104220b4d65f'],
+          '#p': [currentUser.pubkey],
           limit: 20,
           since: 0,
         },
         {
           kinds: [4],
-          authors: ['126103bfddc8df256b6e0abfd7f3797c80dcc4ea88f7c2f87dd4104220b4d65f'],
+          authors: [currentUser.pubkey],
           '#p': [key],
           limit: 20,
           since: 0,

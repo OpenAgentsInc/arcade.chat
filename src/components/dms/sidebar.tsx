@@ -2,11 +2,14 @@
 
 import { useFetchDM } from '@lib/hooks/useFetchDM';
 import { DMsSidebarItem } from './sidebarItem';
+import { useAtomValue } from 'jotai';
+import { user } from '@lib/stores';
 
 export const DMsSidebar = () => {
-  const data = useFetchDM('126103bfddc8df256b6e0abfd7f3797c80dcc4ea88f7c2f87dd4104220b4d65f');
-  let dms = null;
+  const currentUser = useAtomValue(user);
+  const data = useFetchDM(currentUser.pubkey);
 
+  let dms = null;
   if (data) {
     dms = [...new Map(data.map((item: any) => [item['pubkey'], item])).values()];
   }
