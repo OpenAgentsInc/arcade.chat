@@ -1,9 +1,9 @@
 'use client';
 
+import { ImageWithFallback } from '@components/imageWithFallback';
 import { Skeleton } from '@components/skeleton';
 import { useProfile } from '@lib/hooks/useProfile';
 import { shortenPub } from '@lib/shortenPub';
-import Image from 'next/image';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
@@ -23,7 +23,7 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
       ) : (
         <>
           <div className="relative h-9 w-9 overflow-hidden rounded-md">
-            <Image
+            <ImageWithFallback
               src={user?.picture || 'https://void.cat/d/KmypFh2fBdYCEvyJrPiN89.webp'}
               alt={pubkey}
               fill={true}

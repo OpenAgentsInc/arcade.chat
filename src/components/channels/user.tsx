@@ -1,8 +1,8 @@
+import { ImageWithFallback } from '@components/imageWithFallback';
 import { useProfile } from '@lib/hooks/useProfile';
 import { shortenPub } from '@lib/shortenPub';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import Image from 'next/image';
 
 dayjs.extend(relativeTime);
 
@@ -23,7 +23,12 @@ export const ChannelUser = ({ pubkey, time }: { pubkey: string; time: number }) 
       ) : (
         <>
           <div className="relative h-9 w-9 shrink rounded-md">
-            <Image src={user?.picture} alt={pubkey} fill={true} className="h-9 w-9 rounded-md object-cover" />
+            <ImageWithFallback
+              src={user?.picture}
+              alt={pubkey}
+              fill={true}
+              className="h-9 w-9 rounded-md object-cover"
+            />
           </div>
           <div className="flex w-full flex-1 items-start justify-between">
             <div className="flex items-baseline gap-2 text-sm">
