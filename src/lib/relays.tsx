@@ -1,3 +1,5 @@
+'use client';
+
 import { RelayPool } from 'nostr-relaypool';
 import { createContext } from 'react';
 
@@ -18,5 +20,5 @@ const pool = new RelayPool(relays, {
 });
 
 export default function RelayProvider({ children }: { children: React.ReactNode }) {
-  return <RelayContext.Provider value={pool}>{children}</RelayContext.Provider>;
+  return <RelayContext.Provider value={{ pool, relays }}>{children}</RelayContext.Provider>;
 }
