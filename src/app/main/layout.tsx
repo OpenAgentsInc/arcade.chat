@@ -14,7 +14,7 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
       <div className="hidden shrink-0 border-r border-gray-900 sm:block sm:w-[72px]">
         <div className="h-full px-4 pt-3">
           <Link
-            href="/dms"
+            href="/main/dms"
             className={`inline-flex aspect-square w-full items-center justify-center rounded-md bg-gray-900 ring-1 ring-offset-2 ring-offset-gray-900 ${
               segment === 'dms' ? 'ring-cyan-400' : 'ring-transparent'
             }`}

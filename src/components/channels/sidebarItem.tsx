@@ -11,7 +11,7 @@ export const ChannelSidebarItem = ({ id }: { id: string }) => {
 
   return (
     <Link
-      href={`/channels/${id}`}
+      href={`/main/channels/${id}`}
       className={`relative aspect-square w-full overflow-hidden rounded-md bg-gray-900 ring-1 ring-offset-2 ring-offset-gray-900 ${
         segments[1] === id ? 'ring-cyan-400' : 'ring-transparent'
       }`}

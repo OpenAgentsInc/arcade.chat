@@ -21,7 +21,7 @@ export default function Login() {
 
     if (typeof getPublicKey(privkey) === 'string') {
       setUser({ privkey: privkey, pubkey: getPublicKey(privkey) });
-      router.push('/dms');
+      router.push('/main/dms');
     }
   };
 

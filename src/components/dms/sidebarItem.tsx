@@ -13,7 +13,7 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
 
   return (
     <Link
-      href={`/dms/${pubkey}`}
+      href={`/main/dms/${pubkey}`}
       className={`group inline-flex w-full items-center gap-2 px-4 py-2 ${
         segment === pubkey ? 'bg-gray-800 hover:bg-gray-700' : 'hover:bg-gray-800'
       }`}

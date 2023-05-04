@@ -11,9 +11,9 @@ export default function Home() {
 
   useEffect(() => {
     if (!currentUser.privkey && !currentUser.pubkey) {
-      router.push('/login');
+      router.push('/auth/login');
     } else {
-      router.push('/dms');
+      router.push('/main/dms');
     }
   });
 
