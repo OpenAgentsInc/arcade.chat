@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { useSetAtom } from 'jotai';
 import { user } from '@lib/stores';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function Login() {
   const [value, setValue] = useState('');
@@ -39,6 +40,9 @@ export default function Login() {
           <Button type="button" onClick={login}>
             Login
           </Button>
+          <Link href="/auth/create-account" className="text-center text-sm text-gray-400">
+            Create a new account
+          </Link>
         </div>
       </div>
     </div>
