@@ -5,14 +5,18 @@ import { useProfile } from '@lib/hooks/useProfile';
 import { shortenPub } from '@lib/shortenPub';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
+  const segment = useSelectedLayoutSegment();
   const { user, isLoading, isError } = useProfile(pubkey);
 
   return (
     <Link
       href={`/dms/${pubkey}`}
-      className="group inline-flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-gray-900"
+      className={`group inline-flex w-full items-center gap-2 px-4 py-2 ${
+        segment === pubkey ? 'bg-gray-800 hover:bg-gray-700' : 'hover:bg-gray-800'
+      }`}
     >
       {isLoading && isError && !user ? (
         <Skeleton className="h-[20px] w-full rounded-md bg-gray-800" />

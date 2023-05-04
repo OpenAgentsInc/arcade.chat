@@ -8,7 +8,7 @@ const DEFAULT_CHANNELS = [
 
 export const ChannelSidebar = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       {DEFAULT_CHANNELS.map((id) => (
         <ChannelSidebarItem key={id} id={id} />
       ))}

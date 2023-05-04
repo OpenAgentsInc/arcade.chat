@@ -46,14 +46,14 @@ export const DMsForm = ({ receiverPub }: { receiverPub: string }) => {
   };
 
   return (
-    <div className="after:shadow-highlight relative h-24 w-full overflow-hidden before:pointer-events-none before:absolute before:-inset-1 before:rounded-[11px] before:border before:border-cyan-500 before:opacity-0 before:ring-2 before:ring-cyan-500/20 before:transition after:pointer-events-none after:absolute after:inset-px after:rounded-[7px] after:shadow-white/5 after:transition focus-within:before:opacity-100 focus-within:after:shadow-cyan-500/100 dark:focus-within:after:shadow-fuchsia-500/20">
+    <div className="relative h-24 w-full">
       <textarea
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={handleEnterPress}
         spellCheck={false}
         placeholder="Message"
-        className="relative h-24 w-full resize-none rounded-lg border border-black/5 px-3.5 pb-3 pt-3 text-sm shadow-input !outline-none placeholder:text-gray-400 dark:bg-gray-800 dark:text-gray-200 dark:shadow-black/10 dark:placeholder:text-gray-500"
+        className="relative h-24 w-full resize-none rounded-lg px-3.5 pb-3 pt-3 text-sm !outline-none ring-1 ring-gray-600 placeholder:text-gray-400 focus:ring-cyan-500 dark:bg-gray-800 dark:text-gray-200 dark:placeholder:text-gray-500"
       />
       <div className="absolute bottom-2 w-full px-2">
         <div className="flex w-full items-center justify-between bg-gray-800">

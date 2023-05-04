@@ -1,6 +1,6 @@
 import useSWR from 'swr';
 
-const fetcher = async (pubkey: string) => fetch(`https://us.rbr.bio/${pubkey}/metadata.json`).then((r) => r.json());
+const fetcher = async (pubkey: string) => fetch(`https://rbr.bio/${pubkey}/metadata.json`).then((r) => r.json());
 
 export const useProfile = (pubkey: string) => {
   const { data, error, isLoading }: any = useSWR(pubkey, fetcher);

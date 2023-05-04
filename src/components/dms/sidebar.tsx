@@ -15,13 +15,11 @@ export const DMsSidebar = () => {
   }
 
   return (
-    <div className="h-full space-y-2 py-4">
-      <div className="px-2 py-2">
-        <h2 className="px-2 text-lg font-semibold tracking-tight text-gray-100">Messages</h2>
+    <div className="h-full">
+      <div className="mb-2 inline-flex h-14 w-full items-center border-b border-gray-800 px-4">
+        <h2 className="text-lg font-semibold leading-none tracking-tight text-gray-100">Messages</h2>
       </div>
-      <div className="px-2">
-        {!dms ? <></> : dms.map((dm: any) => <DMsSidebarItem key={dm.id} pubkey={dm.pubkey} />)}
-      </div>
+      <div>{!dms ? <></> : dms.map((dm: any) => <DMsSidebarItem key={dm.id} pubkey={dm.pubkey} />)}</div>
     </div>
   );
 };

@@ -3,12 +3,19 @@
 import { useChannelMetadata } from '@lib/hooks/useChannelMetadata';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSelectedLayoutSegments } from 'next/navigation';
 
 export const ChannelSidebarItem = ({ id }: { id: string }) => {
+  const segments = useSelectedLayoutSegments();
   const metadata = useChannelMetadata(id);
 
   return (
-    <Link href={`/channels/${id}`} className="relative aspect-square w-full overflow-hidden rounded-md bg-white">
+    <Link
+      href={`/channels/${id}`}
+      className={`relative aspect-square w-full overflow-hidden rounded-md bg-gray-900 ring-1 ring-offset-2 ring-offset-gray-900 ${
+        segments[1] === id ? 'ring-cyan-400' : 'ring-transparent'
+      }`}
+    >
       {!metadata ? (
         <></>
       ) : (

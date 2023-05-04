@@ -1,28 +1,31 @@
+'use client';
+
 import { Separator } from '@components/separator';
 import { ChannelSidebar } from '@components/channels/sidebar';
 import { MessageCircle } from 'lucide-react';
-import { DMsSidebar } from '@components/dms/sidebar';
 import Link from 'next/link';
+import { useSelectedLayoutSegment } from 'next/navigation';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
+  const segment = useSelectedLayoutSegment();
+
   return (
-    <div className="grid sm:h-screen sm:grid-cols-12">
-      <div className="hidden border-r border-gray-900 sm:col-span-1 sm:block">
-        <div className="h-full px-7 pt-6">
+    <div className="h-screen sm:flex">
+      <div className="hidden shrink-0 border-r border-gray-900 sm:block sm:w-[72px]">
+        <div className="h-full px-4 pt-3">
           <Link
             href="/dms"
-            className="inline-flex aspect-square w-full items-center justify-center rounded-md bg-gray-900"
+            className={`inline-flex aspect-square w-full items-center justify-center rounded-md bg-gray-900 ring-1 ring-offset-2 ring-offset-gray-900 ${
+              segment === 'dms' ? 'ring-cyan-400' : 'ring-transparent'
+            }`}
           >
-            <MessageCircle />
+            <MessageCircle className="h-4 w-4 text-gray-100" />
           </Link>
           <Separator className="my-2 h-px bg-gray-800" />
           <ChannelSidebar />
         </div>
       </div>
-      <div className="m-3 mr-0 hidden rounded-lg border border-gray-800 bg-gray-900 sm:col-span-3 sm:block">
-        <DMsSidebar />
-      </div>
-      <div className="col-span-12 m-3 rounded-lg border border-gray-800 bg-gray-900 sm:col-span-8">{children}</div>
+      {children}
     </div>
   );
 }
