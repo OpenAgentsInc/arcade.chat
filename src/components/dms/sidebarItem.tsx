@@ -22,7 +22,7 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
         <Skeleton className="h-[20px] w-full rounded-md bg-gray-800" />
       ) : (
         <>
-          <div className="relative h-9 w-9 overflow-hidden rounded-md">
+          <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-md">
             <ImageWithFallback
               src={user?.picture || 'https://void.cat/d/KmypFh2fBdYCEvyJrPiN89.webp'}
               alt={pubkey}
