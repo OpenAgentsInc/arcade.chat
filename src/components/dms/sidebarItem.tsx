@@ -4,12 +4,16 @@ import { Skeleton } from '@components/skeleton';
 import { useProfile } from '@lib/hooks/useProfile';
 import { shortenPub } from '@lib/shortenPub';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
   const { user, isLoading, isError } = useProfile(pubkey);
 
   return (
-    <div className="group inline-flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-zinc-900">
+    <Link
+      href={`/dms/${pubkey}`}
+      className="group inline-flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-zinc-900"
+    >
       {isLoading && isError && !user ? (
         <Skeleton className="h-[20px] w-full rounded-md" />
       ) : (
@@ -28,6 +32,6 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
           </div>
         </>
       )}
-    </div>
+    </Link>
   );
 };
