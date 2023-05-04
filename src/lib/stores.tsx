@@ -7,3 +7,9 @@ export const sortedDMsAtom = atom((get) => {
   const messages = get(dmsAtom);
   return messages.sort((x: { created_at: number }, y: { created_at: number }) => x.created_at - y.created_at);
 });
+
+export const channelMessagesAtom = atomWithReset([]);
+export const sortedChannelMessagesAtom = atom((get) => {
+  const messages = get(channelMessagesAtom);
+  return messages.sort((x: { created_at: number }, y: { created_at: number }) => x.created_at - y.created_at);
+});

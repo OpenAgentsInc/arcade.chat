@@ -2,12 +2,13 @@
 
 import { useChannelMetadata } from '@lib/hooks/useChannelMetadata';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const ChannelSidebarItem = ({ id }: { id: string }) => {
   const metadata = useChannelMetadata(id);
 
   return (
-    <div className="relative aspect-square w-full overflow-hidden rounded-md bg-white">
+    <Link href={`/channels/${id}`} className="relative aspect-square w-full overflow-hidden rounded-md bg-white">
       {!metadata ? (
         <></>
       ) : (
@@ -18,6 +19,6 @@ export const ChannelSidebarItem = ({ id }: { id: string }) => {
           className="object-contain"
         />
       )}
-    </div>
+    </Link>
   );
 };
