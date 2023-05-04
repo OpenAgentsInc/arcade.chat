@@ -53,11 +53,11 @@ export const DMsForm = ({ receiverPub }: { receiverPub: string }) => {
         onKeyDown={handleEnterPress}
         spellCheck={false}
         placeholder="Message"
-        className="relative h-24 w-full resize-none rounded-lg border border-black/5 px-3.5 pb-3 pt-3 text-sm shadow-input !outline-none placeholder:text-zinc-400 dark:bg-zinc-800 dark:text-zinc-200 dark:shadow-black/10 dark:placeholder:text-zinc-500"
+        className="relative h-24 w-full resize-none rounded-lg border border-black/5 px-3.5 pb-3 pt-3 text-sm shadow-input !outline-none placeholder:text-gray-400 dark:bg-gray-800 dark:text-gray-200 dark:shadow-black/10 dark:placeholder:text-gray-500"
       />
       <div className="absolute bottom-2 w-full px-2">
-        <div className="flex w-full items-center justify-between bg-zinc-800">
-          <div className="flex items-center gap-2 divide-x divide-zinc-700"></div>
+        <div className="flex w-full items-center justify-between bg-gray-800">
+          <div className="flex items-center gap-2 divide-x divide-gray-700"></div>
           <div className="flex items-center gap-2">
             <button
               onClick={() => submitEvent()}

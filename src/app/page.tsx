@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="flex h-full w-full items-center justify-center">
       <div className="text-center">
-        <h1 className="text-lg font-bold uppercase tracking-wider text-zinc-100">Arcade Chat</h1>
+        <h1 className="text-lg font-bold uppercase tracking-wider text-gray-100">Arcade Chat</h1>
         <p className="text-sm uppercase">Launching MAY 2023</p>
       </div>
     </div>

@@ -12,10 +12,10 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
   return (
     <Link
       href={`/dms/${pubkey}`}
-      className="group inline-flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-zinc-900"
+      className="group inline-flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-gray-900"
     >
       {isLoading && isError && !user ? (
-        <Skeleton className="h-[20px] w-full rounded-md bg-zinc-800" />
+        <Skeleton className="h-[20px] w-full rounded-md bg-gray-800" />
       ) : (
         <>
           <div className="relative h-9 w-9 overflow-hidden rounded-md">
@@ -28,7 +28,7 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
           </div>
           <div className="flex flex-col gap-1">
             <h5 className="text-sm font-medium leading-none">{user?.display_name || user?.name || 'Pleb'}</h5>
-            <p className="text-sm leading-none text-zinc-500 group-hover:text-zinc-400">{shortenPub(pubkey)}</p>
+            <p className="text-sm leading-none text-gray-500 group-hover:text-gray-400">{shortenPub(pubkey)}</p>
           </div>
         </>
       )}

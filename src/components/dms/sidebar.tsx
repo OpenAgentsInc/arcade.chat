@@ -17,7 +17,7 @@ export const DMsSidebar = () => {
   return (
     <div className="h-full space-y-2 py-4">
       <div className="px-2 py-2">
-        <h2 className="px-2 text-lg font-semibold tracking-tight text-zinc-100">Messages</h2>
+        <h2 className="px-2 text-lg font-semibold tracking-tight text-gray-100">Messages</h2>
       </div>
       <div className="px-2">
         {!dms ? <></> : dms.map((dm: any) => <DMsSidebarItem key={dm.id} pubkey={dm.pubkey} />)}

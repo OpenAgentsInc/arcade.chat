@@ -28,7 +28,7 @@ export default function Login() {
   return (
     <div className="flex h-full w-full items-center justify-center">
       <div className="flex w-full flex-col gap-4 sm:max-w-xs">
-        <h1 className="text-center text-lg font-semibold text-zinc-100">Login with private key</h1>
+        <h1 className="text-center text-lg font-semibold text-gray-100">Login with private key</h1>
         <div className="flex flex-col gap-2">
           <Input
             type="password"
