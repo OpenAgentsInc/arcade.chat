@@ -1,4 +1,4 @@
-import { sortedDMsAtom } from '@lib/stores';
+import { sortedDMsAtom, user } from '@lib/stores';
 import { useAtomValue } from 'jotai';
 import { useCallback, useRef } from 'react';
 import { Virtuoso } from 'react-virtuoso';
@@ -7,12 +7,13 @@ import { DMsMessage } from './message';
 export default function DMsMessages() {
   const virtuosoRef = useRef(null);
   const data: any = useAtomValue(sortedDMsAtom);
+  const currentUser = useAtomValue(user);
 
   const itemContent: any = useCallback(
     (index: string | number) => {
-      return <DMsMessage data={data[index]} />;
+      return <DMsMessage data={data[index]} userPriv={currentUser.privkey} userPub={currentUser.pubkey} />;
     },
-    [data]
+    [currentUser.privkey, currentUser.pubkey, data]
   );
 
   const computeItemKey = useCallback(
@@ -23,7 +24,7 @@ export default function DMsMessages() {
   );
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full py-4">
       <Virtuoso
         ref={virtuosoRef}
         data={data}

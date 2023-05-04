@@ -2,15 +2,19 @@ import { Separator } from '@components/separator';
 import { ChannelSidebar } from '@components/channels/sidebar';
 import { MessageCircle } from 'lucide-react';
 import { DMsSidebar } from '@components/dms/sidebar';
+import Link from 'next/link';
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="grid h-full sm:grid-cols-12">
+    <div className="grid sm:h-screen sm:grid-cols-12">
       <div className="hidden border-r border-zinc-900 sm:col-span-1 sm:block">
         <div className="h-full px-7 pt-6">
-          <div className="inline-flex aspect-square w-full items-center justify-center rounded-md bg-zinc-900">
+          <Link
+            href="/dms"
+            className="inline-flex aspect-square w-full items-center justify-center rounded-md bg-zinc-900"
+          >
             <MessageCircle />
-          </div>
+          </Link>
           <Separator className="my-2 h-px bg-zinc-800" />
           <ChannelSidebar />
         </div>

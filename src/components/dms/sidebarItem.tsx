@@ -15,7 +15,7 @@ export const DMsSidebarItem = ({ pubkey }: { pubkey: string }) => {
       className="group inline-flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-zinc-900"
     >
       {isLoading && isError && !user ? (
-        <Skeleton className="h-[20px] w-full rounded-md" />
+        <Skeleton className="h-[20px] w-full rounded-md bg-zinc-800" />
       ) : (
         <>
           <div className="relative h-9 w-9 overflow-hidden rounded-md">
